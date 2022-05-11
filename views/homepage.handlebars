@@ -1,8 +1,8 @@
 <!-- Loop over each object in the projects array -->
 {{#each projects as |project| }}
-      <p class="flex justify-center">{{project.name}}</p>
-    <p class="flex justify-center" >Posted by {{project.user.name}} {{format_date project.date_created}}</p>
+      <p class="flex justify-center text-xl font-bold">{{project.name}}</p>
+    <p class="flex justify-center text-sm font-light" >Posted by {{project.user.name}} {{format_date project.date_created}}</p>
       <p class="flex justify-center">{{project.description}}</p>
-      <a  href="/project/{{project.id}}" class="flex justify-center">view</a>
-      </br>
+      <a  href="/project/{{project.id}}" class="flex justify-center">view</a></br></br>
+</div>
 {{/each}}
