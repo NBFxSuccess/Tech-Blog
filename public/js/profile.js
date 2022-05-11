@@ -37,13 +37,17 @@ const delButtonHandler = async (event) => {
   }
 };
 const UpdateHandler = async (event) => {
+  event.preventDefault();
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
     const name = document.querySelector('#project-name').value.trim();
     const description = document.querySelector('#project-desc').value.trim();
     const response = await fetch(`/api/projects/${id}`, {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify({ name, description }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (response.ok) {
@@ -61,7 +65,7 @@ document
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.delete')
+  .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
 
 document

@@ -34,15 +34,13 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.put('update/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.update({...req.body},{
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
+    const projectData = await Project.update({...req.body} , {
+      where:
+        { id: req.params.id,
+          user_id: req.session.user_id }
     });
-
     if (!projectData) {
       res.status(404).json({ message: 'No x found with this id!' });
       return;
@@ -50,6 +48,7 @@ router.put('update/:id', withAuth, async (req, res) => {
 
     res.status(200).json(projectData);
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
