@@ -1,14 +1,16 @@
 <div class="text-center">
   <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
+  <p>{{description}}</p>
   </p>
+  </br>
   <p>
-    <button class="btn btn-primary">Fund this Project!</button>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="comment">
+        Comment
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Comment">
+    </div>
+    <button class="btn btn-primary">Add comment</button>
   </p>
 </div>
